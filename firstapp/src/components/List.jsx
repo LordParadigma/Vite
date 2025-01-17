@@ -13,7 +13,7 @@ const List = ({ items }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </div>  
   );
 };
 
