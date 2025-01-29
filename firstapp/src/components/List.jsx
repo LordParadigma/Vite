@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const List = ({ items }) => {
   return (
@@ -13,7 +13,7 @@ const List = ({ items }) => {
           </li>
         ))}
       </ul>
-    </div>  
+    </div>
   );
 };
 
