@@ -13,6 +13,8 @@ export default function Button(props) {
       }}
     >
       {props.name} is {props.age} years old and is {isOn ? "On" : "Off"}
+
+      
     </div>
   );
 }
