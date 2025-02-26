@@ -7,7 +7,7 @@ const List = ({ items }) => {
         {items.map((item, index) => (
           <li
             key={index}
-            className="bg-blue-400 text-white p-3 rounded-md hover:bg-blue-500 transition duration-100"
+            className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition duration-200"
           >
             {item}
           </li>
