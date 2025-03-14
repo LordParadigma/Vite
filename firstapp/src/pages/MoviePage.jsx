@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchMovies } from "../utils/api";
 import MovieList from "../components/MovieList";
 
-const MoviePage = () => {
+const MoviePage = ({ setCurrentModal }) => {
   const [empFilme, setEmpFilme] = useState([]);
   const [belFilme, setBelFilme] = useState([]);
 
@@ -20,11 +20,11 @@ const MoviePage = () => {
     <main className="ml-20">
       <section className="mb-12">
         <h2 className="text-4xl mb-4">Empfohlene Filme</h2>
-        <MovieList movies={empFilme} />
+        <MovieList movies={empFilme} onCardClick={setCurrentModal} />
       </section>
       <section>
         <h2 className="text-4xl mb-4">Beliebte Filme</h2>
-        <MovieList movies={belFilme} />
+        <MovieList movies={belFilme} onCardClick={setCurrentModal} />
       </section>
     </main>
   );

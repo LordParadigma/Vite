@@ -3,8 +3,8 @@ import React from "react";
 const MovieCard = ({ movie, onCardClick }) => {
   return (
     <div
-      className="w-[200px] text-center bg-gray-700 text-white p-2.5 rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
-      onClick={() => onCardClick(movie.Title)}
+      className="w-[200px] bg-gray-800 text-white p-2.5 rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
+      onClick={() => onCardClick(movie)}
     >
       {movie.Poster !== "N/A" && (
         <img

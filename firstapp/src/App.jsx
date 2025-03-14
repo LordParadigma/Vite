@@ -1,33 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import MoviePage from "./pages/MoviePage";
 import SearchPage from "./pages/SearchPage";
 import Modal from "./components/Modal";
 
 const App = () => {
-  const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState("");
   const [currentModal, setCurrentModal] = useState(null);
 
-  const handleSearch = () => {
-    if (searchQuery.trim()) {
-      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
-    }
-  };
+  useEffect(() => {
+    document.cookie = "user=SigmaBoy; path=/;";
+    sessionStorage.setItem("ID", "ABC123");
+    localStorage.setItem("FavMeme", "LowTaperFade (its still massive)");
+  }, []);
 
   return (
-    // BrowserRouter hier entfernen
-    <div className="font-sans bg-gray-700 text-white min-h-screen">
-      <Header
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        handleSearch={handleSearch}
-      />
-
+    <div className="font-sans bg-gray-900 text-white min-h-screen">
+      <Header />
       <Routes>
-        <Route path="/" element={<MoviePage />} />
-        <Route path="/search" element={<SearchPage />} />
+        <Route
+          path="/"
+          element={<MoviePage setCurrentModal={setCurrentModal} />}
+        />
+        <Route
+          path="/search"
+          element={<SearchPage setCurrentModal={setCurrentModal} />}
+        />
       </Routes>
 
       {currentModal && (

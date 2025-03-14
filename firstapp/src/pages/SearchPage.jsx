@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { fetchMovies } from "../utils/api";
 import MovieList from "../components/MovieList";
 
-const SearchPage = () => {
+const SearchPage = ({ setCurrentModal }) => {
   const [results, setResults] = useState([]);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -23,7 +23,7 @@ const SearchPage = () => {
     <main className="ml-20">
       <section>
         <h2 className="text-4xl mb-4">Suchergebnisse für "{query}"</h2>
-        <MovieList movies={results} className="w-[250px]" />
+        <MovieList movies={results} onCardClick={setCurrentModal} />
       </section>
     </main>
   );
