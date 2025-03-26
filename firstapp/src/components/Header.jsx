@@ -9,6 +9,7 @@ const Header = () => {
   const handleSearch = () => {
     if (searchQuery.trim()) {
       navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery(""); // Suchfeld leeren
     }
   };
 
@@ -17,7 +18,13 @@ const Header = () => {
       <Link to="/">
         <img src={logo} alt="Logo" className="w-[120px] h-[120px]" />
       </Link>
-      <div className="flex items-center gap-2.5">
+      <form
+        className="flex items-center gap-2.5"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSearch();
+        }}
+      >
         <input
           type="text"
           placeholder="Suche Filme..."
@@ -26,12 +33,12 @@ const Header = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <button
+          type="submit"
           className="p-2.5 text-base bg-blue-900 text-white border-none cursor-pointer rounded hover:bg-blue-800"
-          onClick={handleSearch}
         >
           Suchen
         </button>
-      </div>
+      </form>
     </header>
   );
 };
